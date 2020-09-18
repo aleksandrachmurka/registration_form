@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  flex-flow: column;
+  margin: 20% auto;
+  padding: 5% 10%;
+  width: 50%;
+  background: white;
+  border-radius: 1%;
+}
+
+.fieldset {
+  display: flex;
+  flex-flow: column;
+  border: none;
+}
+
+.legend {
+  font-size: 1.5rem;
+}
+
+.button {
+  height: 40px;
+  width: 80px;
+  align-self: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: white;
+  background-color: #3e6aeb;
+}
