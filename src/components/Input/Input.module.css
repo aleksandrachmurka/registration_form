@@ -1,0 +1,24 @@
+.inputContainer {
+  width: 100%;
+  padding: 2%;
+}
+
+.label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.input {
+  width: 50%;
+  height: 34px;
+}
+
+/* .input:focus {
+  background-color: turquoise;
+} */
+
+@media (max-width: 1000px ) {
+  .input {
+    width: 70%;
+  }
+}

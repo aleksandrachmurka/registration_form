@@ -1,10 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   min-height:100%;
-  box-sizing: border-box;
   background: rgb(62,160,238);
   background: linear-gradient(90deg, rgba(62,160,238,1) 0%, rgba(103,136,232,1) 50%, rgba(62,160,238,1) 100%);
 }
 
 body {
+  margin: 0 auto;
   height: 100vh;
 }
