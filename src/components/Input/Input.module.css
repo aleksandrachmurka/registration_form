@@ -13,9 +13,10 @@
   height: 34px;
 }
 
-/* .input:focus {
-  background-color: turquoise;
-} */
+/*customize placeholder color - a11y */
+.input::placeholder {
+  color: #707070
+}
 
 @media (max-width: 1000px ) {
   .input {

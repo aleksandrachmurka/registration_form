@@ -1,4 +1,4 @@
-export const inputs = [
+export const elements = [
   {
     id: 'firstName',
     type: 'text',
@@ -22,7 +22,7 @@ export const inputs = [
   },
   {
     id: 'repeatPassword',
-    type: 'repeatPassword',
+    type: 'password',
     label: 'Repeat password',
     placeholder: 'Repeat password',
     required: true,
