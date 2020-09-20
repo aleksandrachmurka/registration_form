@@ -18,6 +18,10 @@
   color: #707070
 }
 
+.invalid {
+  background-color: red;
+}
+
 @media (max-width: 1000px ) {
   .input {
     width: 70%;

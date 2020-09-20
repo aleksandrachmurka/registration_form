@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { formInputs } from '../config/inputs';
 
 export const useForm = (callback) => {
-    const [inputs, setInputs] = useState([]);
+    const [inputs, setInputs] = useState(formInputs);
 
     const handleSubmit = e => {
         if (e) {
@@ -14,7 +15,7 @@ export const useForm = (callback) => {
 
     const handleInput = e => {
         e.persist();
-        setInputs(inputs => ({ ...inputs, [e.target.id]: e.target.value }))
+        setInputs(inputs => ({ ...inputs, [e.target.id]: { ...inputs[e.target.id], value: e.target.value } }))
     }
 
     return {
