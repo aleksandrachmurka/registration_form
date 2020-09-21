@@ -7,9 +7,9 @@ import { useForm } from '../../hooks/formHook';
 import { useValidation } from '../../hooks/validationHook';
 import Input from '../Input/Input';
 import Modal from '../Modal/Modal';
+import Button from '../Button/Button';
 
 const Form = () => {
-
   const { handleSubmit, handleInput, inputs } = useForm(handleFormData);
   const { checkInputs, errors, isFormValid } = useValidation();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -60,12 +60,10 @@ const Form = () => {
               .map(input => <Input input={formInputs[input]} key={formInputs[input].id} changeHandler={handleInput} />)
           }
         </fieldset>
-        <button type="submit" className={styles.button} disabled={isSubmitting}>
-          {isSubmitting ? 'Registering...' : 'Register'}
-        </button>
+        <Button isSubmitting={isSubmitting} />
       </form>
     </>
   )
-}
+};
 
 export default Form;
