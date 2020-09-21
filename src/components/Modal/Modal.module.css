@@ -18,3 +18,13 @@
   border: 3px solid red;
   color: red;
 }
+
+.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hide {
+  transform: translateY(-100vh);
+  opacity: 0;
+}

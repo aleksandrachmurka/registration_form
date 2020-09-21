@@ -2,16 +2,14 @@ import React from 'react';
 import { useState } from 'react';
 import styles from './Form.module.css';
 import { formInputs } from '../../config/inputs';
-import { prepareData } from '../../utils/prepareDataHelper';
-import { useForm } from '../../hooks/formHook';
-import { useValidation } from '../../hooks/validationHook';
+import { prepareData } from '../../utils/prepareData';
+import { useForm } from '../../hooks/useForm';
 import Input from '../Input/Input';
 import Modal from '../Modal/Modal';
 import Button from '../Button/Button';
 
 const Form = () => {
-  const { handleSubmit, handleInput, inputs } = useForm(handleFormData);
-  const { checkInputs, errors, isFormValid } = useValidation();
+  const { handleSubmit, handleInput, inputs, errors } = useForm(handleFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [modal, setModal] = useState({ show: false, status: '' });
 
@@ -20,15 +18,9 @@ const Form = () => {
   }
 
   function handleFormData() {
-    checkInputs(inputs)
-    if (isFormValid) {
-      const data = prepareData(inputs);
-      setIsSubmitting(true);
-      sendFormData(data)
-    } else {
-      console.log(errors)
-      console.log('form is invalid');
-    }
+    const data = prepareData(inputs);
+    setIsSubmitting(true);
+    sendFormData(data)
   }
 
   async function sendFormData(data) {
@@ -60,6 +52,7 @@ const Form = () => {
               .map(input => <Input input={formInputs[input]} key={formInputs[input].id} changeHandler={handleInput} />)
           }
         </fieldset>
+        {errors && errors.map(error => <p>{error}</p>)}
         <Button isSubmitting={isSubmitting} />
       </form>
     </>

@@ -14,7 +14,6 @@ export const formInputs = {
     placeholder: 'Enter username',
     required: true,
     value: '',
-    errorMessage: 'Please enter username',
   },
   password: {
     id: 'password',
@@ -23,7 +22,6 @@ export const formInputs = {
     placeholder: 'Enter password',
     required: true,
     value: '',
-    errorMessage: 'Please enter password',
   },
   repeatPassword: {
     id: 'repeatPassword',
@@ -32,7 +30,6 @@ export const formInputs = {
     placeholder: 'Repeat password',
     required: true,
     value: '',
-    errorMessage: 'Passwords are different',
   },
   email: {
     id: 'email',
@@ -41,6 +38,5 @@ export const formInputs = {
     placeholder: 'Enter your email',
     required: true,
     value: '',
-    errorMessage: 'Email format is incorrect',
   }
 };

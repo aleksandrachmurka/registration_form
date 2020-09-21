@@ -10,12 +10,7 @@ const message = {
 const Modal = ({ show, status, close }) => (
   <>
     <Backdrop show={show} close={close} />
-    <div className={`${styles.modal} ${styles[status]}`}
-      style={{
-        transform: show ? 'translateY(0)' : 'translateY(-100vh)',
-        opacity: show ? '1' : '0'
-      }}
-    >
+    <div className={`${styles.modal} ${styles[status]} ${show ? styles.show : styles.hide}`}>
       <p>
         {message[status]}
       </p>
