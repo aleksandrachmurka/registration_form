@@ -7,15 +7,14 @@ import { useForm } from '../../hooks/useForm';
 import Input from '../Input/Input';
 import Modal from '../Modal/Modal';
 import Button from '../Button/Button';
+import Error from '../Error/Error';
+
+const url = 'https://registration-form-6c099.firebaseio.com/users.json';
 
 const Form = () => {
   const { handleSubmit, handleInput, inputs, errors } = useForm(handleFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [modal, setModal] = useState({ show: false, status: '' });
-
-  function closeModal() {
-    setModal({ show: false, status: '' })
-  }
 
   function handleFormData() {
     const data = prepareData(inputs);
@@ -25,20 +24,32 @@ const Form = () => {
 
   async function sendFormData(data) {
     try {
-      const response = await fetch('https://registration-form-6c099.firebaseio.com/users.json', {
+      const response = await fetch(url, {
         method: 'POST',
         body: JSON.stringify(data),
       })
 
       if (response.status === 200) {
-        setIsSubmitting(false);
-        console.log(data);
-        setModal({ show: true, status: 'success' })
+        handleSuccess(data);
       }
     } catch {
-      setIsSubmitting(false);
-      setModal({ show: true, status: 'error' })
+      handleError();
     }
+  }
+
+  function handleSuccess(data) {
+    setIsSubmitting(false);
+    console.log(data);
+    setModal({ show: true, status: 'success' });
+  }
+
+  function handleError() {
+    setIsSubmitting(false);
+    setModal({ show: true, status: 'error' });
+  }
+
+  function closeModal() {
+    setModal({ show: false, status: '' });
   }
 
   return (
@@ -52,7 +63,7 @@ const Form = () => {
               .map(input => <Input input={formInputs[input]} key={formInputs[input].id} changeHandler={handleInput} />)
           }
         </fieldset>
-        {errors && errors.map(error => <p>{error}</p>)}
+        {errors.length !== 0 && <Error errors={errors} />}
         <Button isSubmitting={isSubmitting} />
       </form>
     </>

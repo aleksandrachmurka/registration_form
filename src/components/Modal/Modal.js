@@ -11,7 +11,7 @@ const Modal = ({ show, status, close }) => (
   <>
     <Backdrop show={show} close={close} />
     <div className={`${styles.modal} ${styles[status]} ${show ? styles.show : styles.hide}`}>
-      <p>
+      <p className={styles.message}>
         {message[status]}
       </p>
     </div>

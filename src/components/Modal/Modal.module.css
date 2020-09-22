@@ -9,6 +9,11 @@
   transition: all 0.3s ease-out;
 }
 
+.message {
+  padding: 5%;
+  font-size: 1.5rem;
+}
+
 .success {
   border: 3px solid green;
   color: green;
