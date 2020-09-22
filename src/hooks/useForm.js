@@ -6,11 +6,16 @@ export const useForm = (callback) => {
   const [inputs, setInputs] = useState(formInputs);
   const [errors, setErrors] = useState([]);
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
     }
+    if (errors) {
+      setErrors([])
+    }
+
     const { inputErrors, isFormValid } = validateForm(inputs)
+
     if (isFormValid) {
       callback()
       e.target.reset();
@@ -20,7 +25,7 @@ export const useForm = (callback) => {
     }
   }
 
-  const handleInput = e => {
+  const handleInput = (e) => {
     e.persist();
     setInputs(inputs => ({ ...inputs, [e.target.id]: { ...inputs[e.target.id], value: e.target.value } }))
   }
