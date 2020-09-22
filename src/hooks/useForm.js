@@ -19,7 +19,7 @@ export const useForm = (callback) => {
     if (isFormValid) {
       callback()
       e.target.reset();
-      setInputs(inputs => inputs = {})
+      setInputs(inputs => formInputs)
     } else {
       setErrors(errors => [...inputErrors])
     }
