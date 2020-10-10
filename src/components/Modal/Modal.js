@@ -1,9 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Modal.module.css';
 import Backdrop from '../Backdrop/Backdrop';
 import { modalMessage } from '../../constants';
-
-
 
 const Modal = ({ show, status, close }) => (
   <>
@@ -15,5 +14,11 @@ const Modal = ({ show, status, close }) => (
     </div>
   </>
 );
+
+Modal.propTypes = {
+  show: PropTypes.bool,
+  status: PropTypes.string,
+  close: PropTypes.func.isRequired,
+};
 
 export default Modal;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Input.module.css'
 
 const Input = ({ input, changeHandler }) => {
@@ -11,6 +12,11 @@ const Input = ({ input, changeHandler }) => {
       />
     </div>
   )
+};
+
+Input.prototypes = {
+  input: PropTypes.object.isRequired,
+  changeHandler: PropTypes.func.isRequired,
 };
 
 export default Input;
