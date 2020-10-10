@@ -9,6 +9,10 @@
   background-color: #3e6aeb;
 }
 
+.button:hover {
+  cursor: pointer;
+}
+
 .button:disabled {
   background-color: orange ;
 }
