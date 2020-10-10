@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Modal.module.css';
 import Backdrop from '../Backdrop/Backdrop';
-import { modalMessage } from '../../constants';
+import { modalMessage } from '../../config/constants';
 
 const Modal = ({ show, status, close }) => (
   <>
