@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import styles from './Form.module.css';
 import { formInputs } from '../../config/inputs';
+import { url, statuses } from '../../constants';
 import { prepareData } from '../../utils/prepareData';
 import { useForm } from '../../hooks/useForm';
 import Input from '../Input/Input';
@@ -9,7 +10,7 @@ import Modal from '../Modal/Modal';
 import Button from '../Button/Button';
 import Error from '../Error/Error';
 
-const url = 'https://registration-form-6c099.firebaseio.com/users.json';
+
 
 const Form = () => {
   const { handleSubmit, handleInput, inputs, errors } = useForm(handleFormData);
@@ -40,12 +41,12 @@ const Form = () => {
   function handleSuccess(data) {
     setIsSubmitting(false);
     console.log(data);
-    setModal({ show: true, status: 'success' });
+    setModal({ show: true, status: statuses.success });
   }
 
   function handleError() {
     setIsSubmitting(false);
-    setModal({ show: true, status: 'error' });
+    setModal({ show: true, status: statuses.error });
   }
 
   function closeModal() {
