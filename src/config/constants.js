@@ -13,3 +13,8 @@ export const modalMessage = {
   success: 'Registered successfully!',
   error: 'Error occured while processing your registration request :(',
 };
+
+export const errorMessages = {
+  repeatPassword: 'Passwords must be identical.',
+  email: 'Email format is incorrect.',
+};

@@ -8,12 +8,10 @@ import { useForm } from '../../hooks/useForm';
 import Input from '../Input/Input';
 import Modal from '../Modal/Modal';
 import Button from '../Button/Button';
-import Error from '../Error/Error';
-
 
 
 const Form = () => {
-  const { handleSubmit, handleInput, inputs, errors } = useForm(handleFormData);
+  const { handleSubmit, handleInput, inputs } = useForm(handleFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [modal, setModal] = useState({ show: false, status: '' });
 
@@ -64,7 +62,6 @@ const Form = () => {
               .map(input => <Input input={formInputs[input]} key={formInputs[input].id} changeHandler={handleInput} />)
           }
         </fieldset>
-        {errors.length !== 0 && <Error errors={errors} />}
         <Button isSubmitting={isSubmitting} />
       </form>
     </>

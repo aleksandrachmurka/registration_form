@@ -1,28 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { formInputs } from '../config/inputs';
 import { validateForm } from '../utils/validateForm';
 
 export const useForm = (callback) => {
   const [inputs, setInputs] = useState(formInputs);
-  const [errors, setErrors] = useState([]);
+
+  useEffect(() => handleValidation(inputs), [inputs])
 
   const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
     }
-    if (errors) {
-      setErrors([])
-    }
 
-    const { inputErrors, isFormValid } = validateForm(inputs)
+    const { isValid } = validateForm(inputs)
 
-    if (isFormValid) {
+    if (isValid) {
       callback()
       e.target.reset();
       setInputs(inputs => formInputs)
-    } else {
-      setErrors(errors => [...inputErrors])
     }
+  }
+
+  const handleValidation = (inputs) => {
+    validateForm(inputs)
   }
 
   const handleInput = (e) => {
@@ -34,6 +34,5 @@ export const useForm = (callback) => {
     handleSubmit,
     handleInput,
     inputs,
-    errors,
   }
 };

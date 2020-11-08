@@ -19,6 +19,10 @@
   color: #707070
 }
 
+.input:focus:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+
 @media (max-width: 1000px ) {
   .inputContainer {
     width: 70%;
