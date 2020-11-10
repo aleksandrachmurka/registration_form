@@ -6,6 +6,8 @@ export const formInputs = {
     placeholder: 'First name (optional)',
     required: false,
     value: '',
+    hasError: false,
+    isEmpty: false,
   },
   userName: {
     id: 'userName',
@@ -14,6 +16,8 @@ export const formInputs = {
     placeholder: 'Enter username',
     required: true,
     value: '',
+    hasError: false,
+    isEmpty: false,
   },
   password: {
     id: 'password',
@@ -22,6 +26,8 @@ export const formInputs = {
     placeholder: 'Enter password',
     required: true,
     value: '',
+    hasError: false,
+    isEmpty: false,
   },
   repeatPassword: {
     id: 'repeatPassword',
@@ -30,6 +36,8 @@ export const formInputs = {
     placeholder: 'Repeat password',
     required: true,
     value: '',
+    hasError: false,
+    isEmpty: false,
   },
   email: {
     id: 'email',
@@ -38,5 +46,7 @@ export const formInputs = {
     placeholder: 'Enter your email',
     required: true,
     value: '',
+    hasError: false,
+    isEmpty: false,
   }
 };

@@ -15,6 +15,7 @@ export const modalMessage = {
 };
 
 export const errorMessages = {
+  empty: 'is empty. Please fill it in.',
   repeatPassword: 'Passwords must be identical.',
   email: 'Email format is incorrect.',
 };

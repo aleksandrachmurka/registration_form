@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import styles from './Form.module.css';
-import { formInputs } from '../../config/inputs';
 import { url, statuses } from '../../config/constants';
 import { prepareData } from '../../utils/prepareData';
 import { useForm } from '../../hooks/useForm';
@@ -58,8 +57,8 @@ const Form = () => {
         <fieldset className={styles.fieldset}>
           <legend className={styles.legend}>Register</legend>
           {
-            Object.keys(formInputs)
-              .map(input => <Input input={formInputs[input]} key={formInputs[input].id} changeHandler={handleInput} />)
+            Object.keys(inputs)
+              .map(input => <Input input={inputs[input]} key={inputs[input].id} changeHandler={handleInput} />)
           }
         </fieldset>
         <Button isSubmitting={isSubmitting} />
