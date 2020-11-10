@@ -19,19 +19,18 @@ export const isFormValid = (inputs) => {
   return true
 };
 
-export const validateForm = (inputs) => {
-  for (const input in inputs) {
-    inputs[input].isEmpty = false;
-    inputs[input].hasError = false;
-    if (inputs[input].required && checkIfEmpty(inputs[input])) {
-      inputs[input].isEmpty = true;
-    }
-    if (inputs[input].id === 'repeatPassword' && checkIfPasswordIsDifferent(inputs['password'].value, inputs[input].value)) {
-      inputs.repeatPassword.hasError = true;
-    }
-    if (inputs[input].id === 'email' && checkIfEmailIsIncorrect(inputs[input].value)) {
-      inputs.email.hasError = true;
-    }
+export const validateForm = (inputs, id) => {
+  const input = inputs[id];
+  input.isEmpty = false;
+  input.hasError = false;
+  if (input.required && checkIfEmpty(input)) {
+    input.isEmpty = true;
   }
-  return inputs;
+  if (input.id === 'repeatPassword' && checkIfPasswordIsDifferent(inputs['password'].value, input.value)) {
+    input.hasError = true;
+  }
+  if (input.id === 'email' && checkIfEmailIsIncorrect(input.value)) {
+    input.hasError = true;
+  }
+  return { ...inputs, [id]: input };
 }

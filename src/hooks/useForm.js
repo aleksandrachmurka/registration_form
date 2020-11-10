@@ -19,8 +19,9 @@ export const useForm = (callback) => {
 
   const handleInput = (e) => {
     e.persist();
-    const newInputs = { ...inputs, [e.target.id]: { ...inputs[e.target.id], value: e.target.value } }
-    const validatedInputs = validateForm(newInputs)
+    const inputId = e.target.id;
+    const newInputs = { ...inputs, [inputId]: { ...inputs[inputId], value: e.target.value } }
+    const validatedInputs = validateForm(newInputs, inputId)
     setInputs(validatedInputs);
   }
 

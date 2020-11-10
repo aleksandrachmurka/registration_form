@@ -12,8 +12,8 @@ const Input = ({ input, changeHandler }) => {
       <input className={styles.input} id={id} type={type}
         placeholder={placeholder} required={required} onChange={changeHandler}
       />
-      <p>{isEmpty && `${input.label} ${errorMessages.empty}`}</p>
-      <p>{hasError && `${errorMessages[id]}`}</p>
+      <p className={styles.error}>{isEmpty && `${input.label} ${errorMessages.empty}`}</p>
+      <p className={styles.error}>{hasError && `${errorMessages[id]}`}</p>
     </div>
   )
 };
