@@ -18,9 +18,9 @@ const Form = () => {
     const data = prepareData(inputs);
     setIsSubmitting(true);
     sendFormData(data)
-  }
+  };
 
-  async function sendFormData(data) {
+  const sendFormData = async (data) => {
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -35,18 +35,18 @@ const Form = () => {
     }
   }
 
-  function handleSuccess(data) {
+  const handleSuccess = (data) => {
     setIsSubmitting(false);
     console.log(data);
     setModal({ show: true, status: statuses.success });
   }
 
-  function handleError() {
+  const handleError = () => {
     setIsSubmitting(false);
     setModal({ show: true, status: statuses.error });
   }
 
-  function closeModal() {
+  const closeModal = () => {
     setModal({ show: false, status: '' });
   }
 
